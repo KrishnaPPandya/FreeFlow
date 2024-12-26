@@ -3,6 +3,7 @@ import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
