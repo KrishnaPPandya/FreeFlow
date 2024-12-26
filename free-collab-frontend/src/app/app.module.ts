@@ -1,6 +1,8 @@
+// free-collab-frontend/src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'; // Import BrowserModule
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import {  provideHttpClient } from '@angular/common/http'; // Import HttpClientModule and provideHttpClient
+import { RouterModule } from '@angular/router'; // Import RouterModule
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component'; // Import HomeComponent
@@ -11,10 +13,12 @@ import { HomeComponent } from './home/home.component'; // Import HomeComponent
     HomeComponent // Declare HomeComponent
   ],
   imports: [
-    BrowserModule, // Import BrowserModule
-    HttpClientModule // Import HttpClientModule for HTTP requests
+    BrowserModule, // Import BrowserModule // Import HttpClientModule for HTTP requests
+    RouterModule.forRoot([]) // Import RouterModule for routing
   ],
-  providers: [], // Add any services you want to provide globally
+  providers: [
+    provideHttpClient(withFetch()) // Correctly provide HttpClient
+  ],
   bootstrap: [AppComponent] // Bootstrap the AppComponent
 })
 export class AppModule { }
